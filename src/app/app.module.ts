@@ -10,6 +10,9 @@ import { CountryComponent } from './all-countries/country/country.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { CommonModule } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'countries', pathMatch: 'full'},
@@ -26,6 +29,7 @@ const appRoutes: Routes = [
     CountryComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
@@ -37,7 +41,9 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
