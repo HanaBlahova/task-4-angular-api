@@ -1,0 +1,8 @@
+<div  class="countries">
+    <div  class="country" *ngFor="let country of countries$ | async" [routerLink]="['/country/', country.name]">
+        <div class="country-name">{{ country.name }}</div>
+        <div>Capital city: {{ country.capital }}</div>
+        <div>Area: {{ country.area }}</div>
+        <div>Population: {{ country.population }}</div>
+    </div>
+</div>

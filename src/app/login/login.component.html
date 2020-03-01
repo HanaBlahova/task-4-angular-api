@@ -1,0 +1,15 @@
+<div>
+    <form class="login container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="prihlaseni-email">E-mail</label>
+            <input type="email" class="form-control" formControlName="email" id="prihlaseni-email" placeholder="your@mail.cz">
+            <span class="note" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">E-mail is required and must be in right form. </span>
+        </div>
+        <div class="form-group">
+            <label for="prihlaseni-heslo">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="prihlaseni-heslo">
+            <span class="note" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Password is required and must have more than 6 letters. </span>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log in</button>
+    </form>
+</div>
