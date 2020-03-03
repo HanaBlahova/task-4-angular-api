@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms'
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,17 @@ import { FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+    ) { }
 
   loginForm: FormGroup;
+  testUser = {
+    userEmail: 'test@test.com',
+    userPassword: 'test1234'
+  };
+  failedLogin = false;
 
   ngOnInit(): void {
     this.loginForm = new FormGroup ({
@@ -22,6 +32,17 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.loginForm);
+    this.verify();
+  }
+
+  verify() {
+    if (this.loginForm.get('email').value === this.testUser.userEmail 
+    && this.loginForm.get('password').value === this.testUser.userPassword) {
+      this.authService.isLoggedIn$.next(true);
+      this.router.navigate(['/countries']);
+    } else {
+      this.failedLogin = true;
+    }
   }
 
 }

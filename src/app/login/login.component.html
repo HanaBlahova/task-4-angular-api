@@ -10,6 +10,11 @@
             <input type="password" class="form-control" formControlName="password" id="prihlaseni-heslo">
             <span class="note" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Password is required and must have more than 6 letters. </span>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log in</button>
+        <div class="note" *ngIf="failedLogin">
+            E-mail or password is wrong. Try it again.
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log in</button>
+        </div>
     </form>
 </div>

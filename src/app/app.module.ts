@@ -13,14 +13,14 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { CommonModule } from '@angular/common';
-
+/*
 const appRoutes: Routes = [
   { path: '', redirectTo: 'countries', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'countries', component: AllCountriesComponent },
   { path: 'country/:name', component: CountryComponent }
 ]
-
+*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
+    //RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule
   ],
