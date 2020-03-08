@@ -3,9 +3,11 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 
-@Injectable()
-export class AuthGuard implements CanActivate {
-
+@Injectable({
+  providedIn: 'root'
+})
+export class LoggedInGuard implements CanActivate {
+  
   loggedIn$: boolean;
   subscription = this.auth.isLoggedIn$.subscribe(
     (value) => {
@@ -16,18 +18,19 @@ export class AuthGuard implements CanActivate {
     private auth: AuthService,
     private router: Router
   ) {}
-
+  
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+   
     // Redirect and return false
-    if (!this.loggedIn$) {
-      this.router.navigate(['/login']);
+    if (this.loggedIn$) {
+      this.router.navigate(['/countries']);
       return false;
     }
-    
+  
       return true;
   }
-  
 }
+  
+

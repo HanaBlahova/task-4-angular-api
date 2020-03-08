@@ -1,0 +1,7 @@
+<div  class="country">
+    <div class="country-name">{{ country.name }}</div>
+    <div>Capital city: {{ country.capital }}</div>
+    <div>Area: {{ country.area }}</div>
+    <div>Population: {{ country.population }}</div>
+    <div class="detailAction" [routerLink]="['/country/', country.name]">Detail</div>
+</div>

@@ -1,45 +1,25 @@
 export interface Country {
         name: string,
         capital: string,
-        altSpellings:Array<AltSpellings>,
+        altSpellings:Array<string>,
         relevance: string,
         region: string,
         subregion: string,
-        translations: Array<Translations>,
+        translations: any,
         population: number,
-        latlng: Array<Latlng>,
-        demony: string,
+        latlng: Array<number>,
+        demonym: string,
         area: number,
         gini: number,
-        timezones: string,
-        callingCodes: string,
-        topLevelDomain: string,
+        timezones: Array<string>,
+        borders: Array<string>,
+        callingCodes: Array<string>,
+        topLevelDomain: Array<string>,
         alpha2Code: string,
         alpha3Code: string,
-        currencies: string,
-        languages: Array<Languages>
+        currencies: Array<string>,
+        languages: Array<string>,
+        nativeName: string,
+        numericCode: string
     }
 
-
-export interface AltSpellings {
-    0: string,
-    1: string 
-}
-
-export interface Translations {
-    de: string,
-    en: string,
-    es: string,
-    fr: string
-}
-
-export interface Latlng {
-    0: number, 
-    1: number
-}
-
-export interface Languages { 
-    0: string,
-    1: string,
-    2: string
-}

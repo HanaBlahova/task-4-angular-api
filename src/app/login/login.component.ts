@@ -16,10 +16,6 @@ export class LoginComponent implements OnInit {
     ) { }
 
   loginForm: FormGroup;
-  testUser = {
-    userEmail: 'test@test.com',
-    userPassword: 'test1234'
-  };
   failedLogin = false;
 
   ngOnInit(): void {
@@ -31,14 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm);
-    this.verify();
-  }
-
-  verify() {
-    if (this.loginForm.get('email').value === this.testUser.userEmail 
-    && this.loginForm.get('password').value === this.testUser.userPassword) {
-      this.authService.isLoggedIn$.next(true);
+    if (this.authService.verify(this.loginForm.value)) {
       this.router.navigate(['/countries']);
     } else {
       this.failedLogin = true;

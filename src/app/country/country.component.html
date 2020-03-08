@@ -1,0 +1,62 @@
+<div class="container" *ngIf="country">
+        <div class="row">
+            <div class="country-name col-sm-4">{{ country.name }}</div>
+        </div>
+        <div class="row">
+             <div class="col-sm-3 box">
+                <div class="country-subname">Basic information</div>
+                <div>Native name: {{ country.nativeName }}</div>
+                <div>Capital city: {{ country.capital }}</div>
+                <div>Population: {{ country.population }}</div>
+                <div>Area: {{ country.area }}</div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Region information</div>
+                <div>Region: {{ country.region }}</div>
+                <div>Subregion: {{ country.subregion }}</div>
+                <div>Timezones: {{ country.timezones }}</div>
+                <div>Numeric Code: {{ country.numericCode }}</div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Languages</div>
+                <div>{{ country.languages.join(', ') }}</div>
+                <div class="country-subname">Latlng</div>
+                <div>{{ country.latlng.join(', ') }}</div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Borders</div>
+                <div>{{ country.borders.join(', ') }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 box">
+                <div class="country-subname">Other information</div>
+                <div>Demonym: {{ country.demonym }}</div>
+                <div>Gini: {{ country.gini }}</div>
+                <div>CallingCodes: {{ country.callingCodes }}</div>
+                <div>TopLevelDomain: {{ country.topLevelDomain }}</div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Other information</div>
+                <div>Alpha2Code: {{ country.alpha2Code }}</div>
+                <div>Alpha3Code: {{ country.alpha3Code }}</div>
+                <div>Currencies: {{ country.currencies }}</div>
+                <div>Relevance: {{ country.relevance }}</div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Translations</div>
+                <div *ngFor="let translation of transKeys">
+                    <div>{{translation}}: {{country.translations[translation]}} </div>
+                </div>
+            </div>
+            <div class="col-sm-3 box">
+                <div class="country-subname">Alt Spellings</div>
+                <div>{{ country.altSpellings.join(', ') }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 box">
+                <button class="btn btn-primary" (click)="onCountries()">Back to Countries</button>
+            </div>
+        </div>
+</div>

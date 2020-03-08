@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    margin: 50px auto;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+    .row {
+        box-shadow: 0px 2px #f5f5f5;
+
+    }
+
+        .box {
+            margin: 20px auto;
+        }
+
+        .country-name {
+            font-size: 22px;
+        }
+
+        .country-subname {
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 18px;
+        }

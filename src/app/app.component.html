@@ -1,9 +1,13 @@
  
  <div class="container header">
+  <div *ngIf="loggedIn$">
+    <button class="btn btn-primary" (click)="onLogOut()">Log Out</button>
+  </div>
   <nav>
     <ul class="nav nav-tabs">
-        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login">Login</a></li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!loggedIn$"><a class="nav-link" routerLink="/login">Login</a></li>
         <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/countries">Countries</a></li>
+
     </ul>
   </nav>
   <router-outlet></router-outlet>
