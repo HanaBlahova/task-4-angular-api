@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   isLoggedIn$ = new BehaviorSubject(false);
 
-  testUser = {
-    userEmail: 'test@test.com',
-    userPassword: 'test1234'
-  };
+  testUser = environment.testUser;
 
   verify(loginForm: any) {
     if (loginForm.email === this.testUser.userEmail 

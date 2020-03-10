@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  testUser: {
+    userEmail: 'test@test.com',
+    userPassword: 'test1234'
+  },
+  api: {
+    url: 'https://restcountries-v1.p.rapidapi.com',
+    key: "55b393e8c0mshbeb6f23e62978afp1a125djsnd3eb267fca18"
+  }
 };
 
 /*
